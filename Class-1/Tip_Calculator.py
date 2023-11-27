@@ -1,13 +1,17 @@
 def main():
-    amount = input("How much was the meal? $")
-    percentage = input("What percentage would you like to tip?  ")
-    tip = float(amount) * float(percentage)
-    print(f"Leave:${tip:.2f}")
-def amount():
-    amount = float(amount)
-    return amount
-def percentage():
-    percentage = float(percentage)
-    percentage = ((percentage/100)* amount)
-    return percentage
+    dollars = dollars_to_float(input("How much was the meal? "))
+    percent = percent_to_float(input("What percentage would you like to tip? "))
+    tip = dollars * percent
+    print(f"Leave ${tip:.2f}")
+
+
+def dollars_to_float(d):
+    return float(d)
+
+
+def percent_to_float(p):
+    return float(p) / 100
+
+
 main()
+
