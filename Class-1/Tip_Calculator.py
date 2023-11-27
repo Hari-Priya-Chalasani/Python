@@ -7,4 +7,7 @@ def amount():
     amount = float(amount)
     return amount
 def percentage():
-    percentage = (percentage/)
+    percentage = float(percentage)
+    percentage = ((percentage/amount)* 100)
+    return percentage
+main()
