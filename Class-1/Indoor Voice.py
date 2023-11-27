@@ -1,3 +1,3 @@
 word = input("Enter the input.")
-word = word.lowercase()
+word = word.lower()
 print(word)
