@@ -1,5 +1,5 @@
 #taking mass input from the user
-mass = input("Enter the mass in kg.? ")
+mass = int(input("Enter the mass in kg.? "))
 
 # einstein's formula E=mc2
 c = 300000000
