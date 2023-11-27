@@ -1,3 +1,4 @@
 word = input("Enter the text.  ")
-word = word.replace(":)", "🙂").replace(":(","🙁")
+word = word.replace(":)", "🙂")
+word = word.replace(":(","🙁")
 print(word)
