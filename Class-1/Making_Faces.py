@@ -1,8 +1,8 @@
+#Taking the Input text with  emoticons.
 word = input("Enter the text: ")
+
+#replacing emoticons with emojis
 new_word = word.replace(":)", "🙂").replace(":(", "🙁")
 
-# Check if any replacements were made
-if new_word != word:
-    print("Replaced:", new_word)
-else:
-    print("No replacements made. Original text:", word)
+#printing the word or sentence with replaced emojis
+print(new_word)
