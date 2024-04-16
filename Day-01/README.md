@@ -30,9 +30,9 @@ python is eating the world
 In Python there are several types of data types. Let us get started with the most common ones. Different data types will be covered in detail in other sections. For the time being, let us just go through the different data types and get familiar with them. You do not have to have a clear understanding now.
 
 <h1>Number</h1>
-Integer: Integer(negative, zero and positive) numbers Example: ... -3, -2, -1, 0, 1, 2, 3 ...
-Float: Decimal number Example ... -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5 ...
-Complex Example 1 + j, 2 + 4j
+Integer: Integer(negative, zero and positive) numbers Example: ... -3, -2, -1, 0, 1, 2, 3 ...<br>
+Float: Decimal number Example ... -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5 ...<br>
+Complex Example 1 + j, 2 + 4j<br>
 <h1>String</h1>
 A collection of one or more characters under a single or double quote. If a string is more than one sentence then we use a triple quote.
 
@@ -56,10 +56,10 @@ Python list is an ordered collection which allows to store different data type i
 
 Example:
 
-[0, 1, 2, 3, 4, 5] # all are the same data types - a list of numbers
-['Banana', 'Orange', 'Mango', 'Avocado'] # all the same data types - a list of strings (fruits)
-['Finland','Estonia', 'Sweden','Norway'] # all the same data types - a list of strings (countries)
-['Banana', 10, False, 9.81] # different data types in the list - string, integer, boolean and float
+[0, 1, 2, 3, 4, 5] # all are the same data types - a list of numbers<br>
+['Banana', 'Orange', 'Mango', 'Avocado'] # all the same data types - a list of strings (fruits)<br>
+['Finland','Estonia', 'Sweden','Norway'] # all the same data types - a list of strings (countries)<br>
+['Banana', 10, False, 9.81] # different data types in the list - string, integer, boolean and float<br>
 <h1>Dictionary</h1>
 A Python dictionary object is an unordered collection of data in a key value pair format.
 
@@ -99,21 +99,21 @@ The file name is helloworld.py
 
 # Day 1 - 30DaysOfPython Challenge
 
-print(2 + 3) # addition(+)
-print(3 - 1) # subtraction(-)
-print(2 _ 3) # multiplication(_)
-print(3 / 2) # division(/)
-print(3 ** 2) # exponential(**)
-print(3 % 2) # modulus(%)
-print(3 // 2) # Floor division operator(//)
+print(2 + 3) # addition(+)<br>
+print(3 - 1) # subtraction(-)<br>
+print(2 _ 3) # multiplication(_)<br>
+print(3 / 2) # division(/)<br>
+print(3 ** 2) # exponential(**)<br>
+print(3 % 2) # modulus(%)<br>
+print(3 // 2) # Floor division operator(//)<br>
 
 # Checking data types
 
-print(type(10)) # Int
-print(type(3.14)) # Float
-print(type(1 + 3j)) # Complex number
-print(type('Asabeneh')) # String
-print(type([1, 2, 3])) # List
-print(type({'name':'Asabeneh'})) # Dictionary
-print(type({9.8, 3.14, 2.7})) # Set
-print(type((9.8, 3.14, 2.7))) # Tuple
+print(type(10)) # Int <br>
+print(type(3.14)) # Float<br>
+print(type(1 + 3j)) # Complex number<br>
+print(type('Asabeneh')) # String<br>
+print(type([1, 2, 3])) # List<br>
+print(type({'name':'Asabeneh'})) # Dictionary<br>
+print(type({9.8, 3.14, 2.7})) # Set<br>
+print(type((9.8, 3.14, 2.7))) # Tuple<br>
