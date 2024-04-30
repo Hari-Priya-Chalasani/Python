@@ -1,216 +1,562 @@
-📘 Day 2
-Built in functions
-In Python we have lots of built-in functions. Built-in functions are globally available for your use that mean you can make use of the built-in functions without importing or configuring. Some of the most commonly used Python built-in functions are the following: print(), len(), type(), int(), float(), str(), input(), list(), dict(), min(), max(), sum(), sorted(), open(), file(), help(), and dir(). In the following table you will see an exhaustive list of Python built-in functions taken from python documentation.
+# Day 4
 
-Built-in Functions
+## Strings
 
-Let us open the Python shell and start using some of the most common built-in functions.
+Text is a string data type. Any data type written as text is a string. Any data under single, double or triple quote are strings. There are different string methods and built-in functions to deal with string data types. To check the length of a string use the len() method.
 
-Built-in functions
+### Creating a String
 
-Let us practice more by using different built-in functions
+```py
+letter = 'P'                # A string could be a single character or a bunch of texts
+print(letter)               # P
+print(len(letter))          # 1
+greeting = 'Hello, World!'  # String could be made using a single or double quote,"Hello, World!"
+print(greeting)             # Hello, World!
+print(len(greeting))        # 13
+sentence = "I hope you are enjoying 30 days of Python Challenge"
+print(sentence)
+```
 
-Help and Dir Built in Functions
+Multiline string is created by using triple single (''') or triple double quotes ("""). See the example below.
 
-As you can see from the terminal above, Python has got reserved words. We do not use reserved words to declare variables or functions. We will cover variables in the next section.
+```py
+multiline_string = '''I am a teacher and enjoy teaching.
+I didn't find anything as rewarding as empowering people.
+That is why I created 30 days of python.'''
+print(multiline_string)
 
-I believe, by now you are familiar with built-in functions. Let us do one more practice of built-in functions and we will move on to the next section.
+# Another way of doing the same thing
+multiline_string = """I am a teacher and enjoy teaching.
+I didn't find anything as rewarding as empowering people.
+That is why I created 30 days of python."""
+print(multiline_string)
+```
 
-Min Max Sum
+### String Concatenation
 
-Variables
-Variables store data in a computer memory. Mnemonic variables are recommended to use in many programming languages. A mnemonic variable is a variable name that can be easily remembered and associated. A variable refers to a memory address in which data is stored. Number at the beginning, special character, hyphen are not allowed when naming a variable. A variable can have a short name (like x, y, z), but a more descriptive name (firstname, lastname, age, country) is highly recommended.
+We can connect strings together. Merging or connecting strings is called concatenation. See the example below:
 
-Python Variable Name Rules
-
-A variable name must start with a letter or the underscore character
-A variable name cannot start with a number
-A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
-Variable names are case-sensitive (firstname, Firstname, FirstName and FIRSTNAME) are different variables)
-Here are some example of valid variable names:
-
-firstname
-lastname
-age
-country
-city
-first_name
-last_name
-capital_city
-_if # if we want to use reserved word as a variable
-year_2021
-year2021
-current_year_2021
-birth_year
-num1
-num2
-Invalid variables names
-
-first-name
-first@name
-first$name
-num-1
-1num
-We will use standard Python variable naming style which has been adopted by many Python developers. Python developers use snake case(snake_case) variable naming convention. We use underscore character after each word for a variable containing more than one word(eg. first_name, last_name, engine_rotation_speed). The example below is an example of standard naming of variables, underscore is required when the variable name is more than one word.
-
-When we assign a certain data type to a variable, it is called variable declaration. For instance in the example below my first name is assigned to a variable first_name. The equal sign is an assignment operator. Assigning means storing data in the variable. The equal sign in Python is not equality as in Mathematics.
-
-Example:
-
-# Variables in Python
+```py
 first_name = 'Asabeneh'
 last_name = 'Yetayeh'
-country = 'Finland'
-city = 'Helsinki'
-age = 250
-is_married = True
-skills = ['HTML', 'CSS', 'JS', 'React', 'Python']
-person_info = {
-   'firstname':'Asabeneh',
-   'lastname':'Yetayeh',
-   'country':'Finland',
-   'city':'Helsinki'
-   }
-Let us use the print() and len() built-in functions. Print function takes unlimited number of arguments. An argument is a value which we can be passed or put inside the function parenthesis, see the example below.
+space = ' '
+full_name = first_name  +  space + last_name
+print(full_name) # Asabeneh Yetayeh
+# Checking the length of a string using len() built-in function
+print(len(first_name))  # 8
+print(len(last_name))   # 7
+print(len(first_name) > len(last_name)) # True
+print(len(full_name)) # 16
+```
 
-Example:
+### Escape Sequences in Strings
 
-print('Hello, World!') # The text Hello, World! is an argument
-print('Hello',',', 'World','!') # it can take multiple arguments, four arguments have been passed
-print(len('Hello, World!')) # it takes only one argument
-Let us print and also find the length of the variables declared at the top:
+In Python and other programming languages \ followed by a character is an escape sequence. Let us see the most common escape characters:
 
-Example:
+- \n: new line
+- \t: Tab means(8 spaces)
+- \\\\: Back slash
+- \\': Single quote (')
+- \\": Double quote (")
 
-# Printing the values stored in the variables
+Now, let us see the use of the above escape sequences with examples.
 
-print('First name:', first_name)
-print('First name length:', len(first_name))
-print('Last name: ', last_name)
-print('Last name length: ', len(last_name))
-print('Country: ', country)
-print('City: ', city)
-print('Age: ', age)
-print('Married: ', is_married)
-print('Skills: ', skills)
-print('Person information: ', person_info)
-Declaring Multiple Variable in a Line
-Multiple variables can also be declared in one line:
+```py
+print('I hope everyone is enjoying the Python Challenge.\nAre you ?') # line break
+print('Days\tTopics\tExercises') # adding tab space or 4 spaces 
+print('Day 1\t5\t5')
+print('Day 2\t6\t20')
+print('Day 3\t5\t23')
+print('Day 4\t1\t35')
+print('This is a backslash  symbol (\\)') # To write a backslash
+print('In every programming language it starts with \"Hello, World!\"') # to write a double quote inside a single quote
 
-Example:
+# output
+I hope every one is enjoying the Python Challenge.
+Are you ?
+Days	Topics	Exercises
+Day 1	5	    5
+Day 2	6	    20
+Day 3	5	    23
+Day 4	1	    35
+This is a backslash  symbol (\)
+In every programming language it starts with "Hello, World!"
+```
 
-first_name, last_name, country, age, is_married = 'Asabeneh', 'Yetayeh', 'Helsink', 250, True
+### String formatting
 
-print(first_name, last_name, country, age, is_married)
-print('First name:', first_name)
-print('Last name: ', last_name)
-print('Country: ', country)
-print('Age: ', age)
-print('Married: ', is_married)
-Getting user input using the input() built-in function. Let us assign the data we get from a user into first_name and age variables. Example:
+#### Old Style String Formatting (% Operator)
 
-first_name = input('What is your name: ')
-age = input('How old are you? ')
+In Python there are many ways of formatting strings. In this section, we will cover some of them.
+The "%" operator is used to format a set of variables enclosed in a "tuple" (a fixed size list), together with a format string, which contains normal text together with "argument specifiers", special symbols like "%s", "%d", "%f", "%.<small>number of digits</small>f".
 
-print(first_name)
-print(age)
-Data Types
-There are several data types in Python. To identify the data type we use the type built-in function. I would like to ask you to focus on understanding different data types very well. When it comes to programming, it is all about data types. I introduced data types at the very beginning and it comes again, because every topic is related to data types. We will cover data types in more detail in their respective sections.
+- %s - String (or any object with a string representation, like numbers)
+- %d - Integers
+- %f - Floating point numbers
+- "%.<small>number of digits</small>f" - Floating point numbers with fixed precision
 
-Checking Data types and Casting
-Check Data types: To check the data type of certain data/variable we use the type Example:
-# Different python data types
-# Let's declare variables with various data types
-
-first_name = 'Asabeneh'     # str
-last_name = 'Yetayeh'       # str
-country = 'Finland'         # str
-city= 'Helsinki'            # str
-age = 250                   # int, it is not my real age, don't worry about it
-
-# Printing out types
-print(type('Asabeneh'))     # str
-print(type(first_name))     # str
-print(type(10))             # int
-print(type(3.14))           # float
-print(type(1 + 1j))         # complex
-print(type(True))           # bool
-print(type([1, 2, 3, 4]))     # list
-print(type({'name':'Asabeneh','age':250, 'is_married':250}))    # dict
-print(type((1,2)))                                              # tuple
-print(type(zip([1,2],[3,4])))                                   # set
-Casting: Converting one data type to another data type. We use int(), float(), str(), list, set When we do arithmetic operations string numbers should be first converted to int or float otherwise it will return an error. If we concatenate a number with a string, the number should be first converted to a string. We will talk about concatenation in String section.
-
-Example:
-
-# int to float
-num_int = 10
-print('num_int',num_int)         # 10
-num_float = float(num_int)
-print('num_float:', num_float)   # 10.0
-
-# float to int
-gravity = 9.81
-print(int(gravity))             # 9
-
-# int to str
-num_int = 10
-print(num_int)                  # 10
-num_str = str(num_int)
-print(num_str)                  # '10'
-
-# str to int or float
-num_str = '10.6'
-print('num_int', int(num_str))      # 10
-print('num_float', float(num_str))  # 10.6
-
-# str to list
+```py
+# Strings only
 first_name = 'Asabeneh'
-print(first_name)               # 'Asabeneh'
-first_name_to_list = list(first_name)
-print(first_name_to_list)            # ['A', 's', 'a', 'b', 'e', 'n', 'e', 'h']
-Numbers
-Number data types in Python:
+last_name = 'Yetayeh'
+language = 'Python'
+formated_string = 'I am %s %s. I teach %s' %(first_name, last_name, language)
+print(formated_string)
 
-Integers: Integer(negative, zero and positive) numbers Example: ... -3, -2, -1, 0, 1, 2, 3 ...
+# Strings  and numbers
+radius = 10
+pi = 3.14
+area = pi * radius ** 2
+formated_string = 'The area of circle with a radius %d is %.2f.' %(radius, area) # 2 refers the 2 significant digits after the point
 
-Floating Point Numbers(Decimal numbers) Example: ... -3.5, -2.25, -1.0, 0.0, 1.1, 2.2, 3.5 ...
+python_libraries = ['Django', 'Flask', 'NumPy', 'Matplotlib','Pandas']
+formated_string = 'The following are python libraries:%s' % (python_libraries)
+print(formated_string) # "The following are python libraries:['Django', 'Flask', 'NumPy', 'Matplotlib','Pandas']"
+```
 
-Complex Numbers Example: 1 + j, 2 + 4j, 1 - 1j
+#### New Style String Formatting (str.format)
 
-🌕 You are awesome. You have just completed day 2 challenges and you are two steps ahead on your way to greatness. Now do some exercises for your brain and muscles.
+This formatting is introduced in Python version 3.
 
-💻 Exercises - Day 2
-Exercises: Level 1
-Inside 30DaysOfPython create a folder called day_2. Inside this folder create a file named variables.py
-Write a python comment saying 'Day 2: 30 Days of python programming'
-Declare a first name variable and assign a value to it
-Declare a last name variable and assign a value to it
-Declare a full name variable and assign a value to it
-Declare a country variable and assign a value to it
-Declare a city variable and assign a value to it
-Declare an age variable and assign a value to it
-Declare a year variable and assign a value to it
-Declare a variable is_married and assign a value to it
-Declare a variable is_true and assign a value to it
-Declare a variable is_light_on and assign a value to it
-Declare multiple variable on one line
-Exercises: Level 2
-Check the data type of all your variables using type() built-in function
-Using the len() built-in function, find the length of your first name
-Compare the length of your first name and your last name
-Declare 5 as num_one and 4 as num_two
-Add num_one and num_two and assign the value to a variable total
-Subtract num_two from num_one and assign the value to a variable diff
-Multiply num_two and num_one and assign the value to a variable product
-Divide num_one by num_two and assign the value to a variable division
-Use modulus division to find num_two divided by num_one and assign the value to a variable remainder
-Calculate num_one to the power of num_two and assign the value to a variable exp
-Find floor division of num_one by num_two and assign the value to a variable floor_division
-The radius of a circle is 30 meters.
-Calculate the area of a circle and assign the value to a variable name of area_of_circle
-Calculate the circumference of a circle and assign the value to a variable name of circum_of_circle
-Take radius as user input and calculate the area.
-Use the built-in input function to get first name, last name, country and age from a user and store the value to their corresponding variable names
-Run help('keywords') in Python shell or in your file to check for the Python reserved words or keywords
+```py
+
+first_name = 'Asabeneh'
+last_name = 'Yetayeh'
+language = 'Python'
+formated_string = 'I am {} {}. I teach {}'.format(first_name, last_name, language)
+print(formated_string)
+a = 4
+b = 3
+
+print('{} + {} = {}'.format(a, b, a + b))
+print('{} - {} = {}'.format(a, b, a - b))
+print('{} * {} = {}'.format(a, b, a * b))
+print('{} / {} = {:.2f}'.format(a, b, a / b)) # limits it to two digits after decimal
+print('{} % {} = {}'.format(a, b, a % b))
+print('{} // {} = {}'.format(a, b, a // b))
+print('{} ** {} = {}'.format(a, b, a ** b))
+
+# output
+4 + 3 = 7
+4 - 3 = 1
+4 * 3 = 12
+4 / 3 = 1.33
+4 % 3 = 1
+4 // 3 = 1
+4 ** 3 = 64
+
+# Strings  and numbers
+radius = 10
+pi = 3.14
+area = pi * radius ** 2
+formated_string = 'The area of a circle with a radius {} is {:.2f}.'.format(radius, area) # 2 digits after decimal
+print(formated_string)
+
+```
+
+#### String Interpolation / f-Strings (Python 3.6+)
+
+Another new string formatting is string interpolation, f-strings. Strings start with f and we can inject the data in their corresponding positions.
+
+```py
+a = 4
+b = 3
+print(f'{a} + {b} = {a +b}')
+print(f'{a} - {b} = {a - b}')
+print(f'{a} * {b} = {a * b}')
+print(f'{a} / {b} = {a / b:.2f}')
+print(f'{a} % {b} = {a % b}')
+print(f'{a} // {b} = {a // b}')
+print(f'{a} ** {b} = {a ** b}')
+```
+
+### Python Strings as Sequences of Characters
+
+Python strings are sequences of characters, and share their basic methods of access with other Python ordered sequences of objects – lists and tuples. The simplest way of extracting single characters from strings (and individual members from any sequence) is to unpack them into corresponding variables.
+
+#### Unpacking Characters
+
+```
+language = 'Python'
+a,b,c,d,e,f = language # unpacking sequence characters into variables
+print(a) # P
+print(b) # y
+print(c) # t
+print(d) # h
+print(e) # o
+print(f) # n
+```
+
+#### Accessing Characters in Strings by Index
+
+In programming counting starts from zero. Therefore the first letter of a string is at zero index and the last letter of a string is the length of a string minus one.
+
+![String index](../images/string_index.png)
+
+```py
+language = 'Python'
+first_letter = language[0]
+print(first_letter) # P
+second_letter = language[1]
+print(second_letter) # y
+last_index = len(language) - 1
+last_letter = language[last_index]
+print(last_letter) # n
+```
+
+If we want to start from right end we can use negative indexing. -1 is the last index.
+
+```py
+language = 'Python'
+last_letter = language[-1]
+print(last_letter) # n
+second_last = language[-2]
+print(second_last) # o
+```
+
+#### Slicing Python Strings
+
+In python we can slice strings into substrings.
+
+```py
+language = 'Python'
+first_three = language[0:3] # starts at zero index and up to 3 but not include 3
+print(first_three) #Pyt
+last_three = language[3:6]
+print(last_three) # hon
+# Another way
+last_three = language[-3:]
+print(last_three)   # hon
+last_three = language[3:]
+print(last_three)   # hon
+```
+
+#### Reversing a String
+
+We can easily reverse strings in python.
+
+```py
+greeting = 'Hello, World!'
+print(greeting[::-1]) # !dlroW ,olleH
+```
+
+#### Skipping Characters While Slicing
+
+It is possible to skip characters while slicing by passing step argument to slice method.
+
+```py
+language = 'Python'
+pto = language[0:6:2] #
+print(pto) # Pto
+```
+
+### String Methods
+
+There are many string methods which allow us to format strings. See some of the string methods in the following example:
+
+- capitalize(): Converts the first character of the string to capital letter
+
+```py
+challenge = 'thirty days of python'
+print(challenge.capitalize()) # 'Thirty days of python'
+```
+
+- count(): returns occurrences of substring in string, count(substring, start=.., end=..). The start is a starting indexing for counting and end is the last index to count.
+
+```py
+challenge = 'thirty days of python'
+print(challenge.count('y')) # 3
+print(challenge.count('y', 7, 14)) # 1, 
+print(challenge.count('th')) # 2`
+```
+
+- endswith(): Checks if a string ends with a specified ending
+
+```py
+challenge = 'thirty days of python'
+print(challenge.endswith('on'))   # True
+print(challenge.endswith('tion')) # False
+```
+
+- expandtabs(): Replaces tab character with spaces, default tab size is 8. It takes tab size argument
+
+```py
+challenge = 'thirty\tdays\tof\tpython'
+print(challenge.expandtabs())   # 'thirty  days    of      python'
+print(challenge.expandtabs(10)) # 'thirty    days      of        python'
+```
+
+- find(): Returns the index of the first occurrence of a substring, if not found returns -1
+
+```py
+challenge = 'thirty days of python'
+print(challenge.find('y'))  # 5
+print(challenge.find('th')) # 0
+```
+
+- rfind(): Returns the index of the last occurrence of a substring, if not found returns -1
+
+```py
+challenge = 'thirty days of python'
+print(challenge.rfind('y'))  # 16
+print(challenge.rfind('th')) # 17
+```
+
+- format(): formats string into a nicer output  
+   More about string formatting check this [link](https://www.programiz.com/python-programming/methods/string/format)
+
+```py
+first_name = 'Asabeneh'
+last_name = 'Yetayeh'
+age = 250
+job = 'teacher'
+country = 'Finland'
+sentence = 'I am {} {}. I am a {}. I am {} years old. I live in {}.'.format(first_name, last_name, age, job, country)
+print(sentence) # I am Asabeneh Yetayeh. I am 250 years old. I am a teacher. I live in Finland.
+
+radius = 10
+pi = 3.14
+area = pi * radius ** 2
+result = 'The area of a circle with radius {} is {}'.format(str(radius), str(area))
+print(result) # The area of a circle with radius 10 is 314
+```
+
+- index(): Returns the lowest index of a substring, additional arguments indicate starting and ending index (default 0 and string length - 1). If the substring is not found it raises a valueError. 
+
+```py
+challenge = 'thirty days of python'
+sub_string = 'da'
+print(challenge.index(sub_string))  # 7
+print(challenge.index(sub_string, 9)) # error
+```
+
+- rindex(): Returns the highest index of a substring, additional arguments indicate starting and ending index (default 0 and string length - 1)
+
+```py
+challenge = 'thirty days of python'
+sub_string = 'da'
+print(challenge.rindex(sub_string))  # 8
+print(challenge.rindex(sub_string, 9)) # error
+```
+
+- isalnum(): Checks alphanumeric character
+
+```py
+challenge = 'ThirtyDaysPython'
+print(challenge.isalnum()) # True
+
+challenge = '30DaysPython'
+print(challenge.isalnum()) # True
+
+challenge = 'thirty days of python'
+print(challenge.isalnum()) # False, space is not an alphanumeric character
+
+challenge = 'thirty days of python 2019'
+print(challenge.isalnum()) # False
+```
+
+- isalpha(): Checks if all string elements are alphabet characters (a-z and A-Z)
+
+```py
+challenge = 'thirty days of python'
+print(challenge.isalpha()) # False, space is once again excluded
+challenge = 'ThirtyDaysPython'
+print(challenge.isalpha()) # True
+num = '123'
+print(num.isalpha())      # False
+```
+
+- isdecimal(): Checks if all characters in a string are decimal (0-9)
+
+```py
+challenge = 'thirty days of python'
+print(challenge.isdecimal())  # False
+challenge = '123'
+print(challenge.isdecimal())  # True
+challenge = '\u00B2'
+print(challenge.isdigit())   # False
+challenge = '12 3'
+print(challenge.isdecimal())  # False, space not allowed
+```
+
+- isdigit(): Checks if all characters in a string are numbers (0-9 and some other unicode characters for numbers)
+
+```py
+challenge = 'Thirty'
+print(challenge.isdigit()) # False
+challenge = '30'
+print(challenge.isdigit())   # True
+challenge = '\u00B2'
+print(challenge.isdigit())   # True
+```
+
+- isnumeric(): Checks if all characters in a string are numbers or number related (just like isdigit(), just accepts more symbols, like ½)
+
+```py
+num = '10'
+print(num.isnumeric()) # True
+num = '\u00BD' # ½
+print(num.isnumeric()) # True
+num = '10.5'
+print(num.isnumeric()) # False
+```
+
+- isidentifier(): Checks for a valid identifier - it checks if a string is a valid variable name
+
+```py
+challenge = '30DaysOfPython'
+print(challenge.isidentifier()) # False, because it starts with a number
+challenge = 'thirty_days_of_python'
+print(challenge.isidentifier()) # True
+```
+
+- islower(): Checks if all alphabet characters in the string are lowercase
+
+```py
+challenge = 'thirty days of python'
+print(challenge.islower()) # True
+challenge = 'Thirty days of python'
+print(challenge.islower()) # False
+```
+
+- isupper(): Checks if all alphabet characters in the string are uppercase
+
+```py
+challenge = 'thirty days of python'
+print(challenge.isupper()) #  False
+challenge = 'THIRTY DAYS OF PYTHON'
+print(challenge.isupper()) # True
+```
+
+- join(): Returns a concatenated string
+
+```py
+web_tech = ['HTML', 'CSS', 'JavaScript', 'React']
+result = ' '.join(web_tech)
+print(result) # 'HTML CSS JavaScript React'
+```
+
+```py
+web_tech = ['HTML', 'CSS', 'JavaScript', 'React']
+result = '# '.join(web_tech)
+print(result) # 'HTML# CSS# JavaScript# React'
+```
+
+- strip(): Removes all given characters starting from the beginning and end of the string
+
+```py
+challenge = 'thirty days of pythoonnn'
+print(challenge.strip('noth')) # 'irty days of py'
+```
+
+- replace(): Replaces substring with a given string
+
+```py
+challenge = 'thirty days of python'
+print(challenge.replace('python', 'coding')) # 'thirty days of coding'
+```
+
+- split(): Splits the string, using given string or space as a separator
+
+```py
+challenge = 'thirty days of python'
+print(challenge.split()) # ['thirty', 'days', 'of', 'python']
+challenge = 'thirty, days, of, python'
+print(challenge.split(', ')) # ['thirty', 'days', 'of', 'python']
+```
+
+- title(): Returns a title cased string
+
+```py
+challenge = 'thirty days of python'
+print(challenge.title()) # Thirty Days Of Python
+```
+
+- swapcase(): Converts all uppercase characters to lowercase and all lowercase characters to uppercase characters
+
+```py
+challenge = 'thirty days of python'
+print(challenge.swapcase())   # THIRTY DAYS OF PYTHON
+challenge = 'Thirty Days Of Python'
+print(challenge.swapcase())  # tHIRTY dAYS oF pYTHON
+```
+
+- startswith(): Checks if String Starts with the Specified String
+
+```py
+challenge = 'thirty days of python'
+print(challenge.startswith('thirty')) # True
+
+challenge = '30 days of python'
+print(challenge.startswith('thirty')) # False
+```
+
+🌕 You are an extraordinary person and you have a remarkable potential. You have just completed day 4 challenges and you are four steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+
+## 💻 Exercises - Day 4
+
+1. Concatenate the string 'Thirty', 'Days', 'Of', 'Python' to a single string, 'Thirty Days Of Python'.
+2. Concatenate the string 'Coding', 'For' , 'All' to a single string, 'Coding For All'.
+3. Declare a variable named company and assign it to an initial value "Coding For All".
+4. Print the variable company using _print()_.
+5. Print the length of the company string using _len()_ method and _print()_.
+6. Change all the characters to uppercase letters using _upper()_ method.
+7. Change all the characters to lowercase letters using _lower()_ method.
+8. Use capitalize(), title(), swapcase() methods to format the value of the string _Coding For All_.
+9. Cut(slice) out the first word of _Coding For All_ string.
+10. Check if _Coding For All_ string contains a word Coding using the method index, find or other methods.
+11. Replace the word coding in the string 'Coding For All' to Python.
+12. Change Python for Everyone to Python for All using the replace method or other methods.
+13. Split the string 'Coding For All' using space as the separator (split()) .
+14. "Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon" split the string at the comma.
+15. What is the character at index 0 in the string _Coding For All_.
+16. What is the last index of the string _Coding For All_.
+17. What character is at index 10 in "Coding For All" string.
+18. Create an acronym or an abbreviation for the name 'Python For Everyone'.
+19. Create an acronym or an abbreviation for the name 'Coding For All'.
+20. Use index to determine the position of the first occurrence of C in Coding For All.
+21. Use index to determine the position of the first occurrence of F in Coding For All.
+22. Use rfind to determine the position of the last occurrence of l in Coding For All People.
+23. Use index or find to find the position of the first occurrence of the word 'because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+24. Use rindex to find the position of the last occurrence of the word because in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+25. Slice out the phrase 'because because because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+26. Find the position of the first occurrence of the word 'because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+27. Slice out the phrase 'because because because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
+28. Does '\'Coding For All' start with a substring _Coding_?
+29. Does 'Coding For All' end with a substring _coding_?
+30. '&nbsp;&nbsp; Coding For All &nbsp;&nbsp;&nbsp; &nbsp;' &nbsp;, remove the left and right trailing spaces in the given string.
+31. Which one of the following variables return True when we use the method isidentifier():
+    - 30DaysOfPython
+    - thirty_days_of_python
+32. The following list contains the names of some of python libraries: ['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']. Join the list with a hash with space string.
+33. Use the new line escape sequence to separate the following sentences.
+    ```py
+    I am enjoying this challenge.
+    I just wonder what is next.
+    ```
+34. Use a tab escape sequence to write the following lines.
+    ```py
+    Name      Age     Country   City
+    Asabeneh  250     Finland   Helsinki
+    ```
+35. Use the string formatting method to display the following:
+
+```sh
+radius = 10
+area = 3.14 * radius ** 2
+The area of a circle with radius 10 is 314 meters square.
+```
+
+36. Make the following using string formatting methods:
+
+```sh
+8 + 6 = 14
+8 - 6 = 2
+8 * 6 = 48
+8 / 6 = 1.33
+8 % 6 = 2
+8 // 6 = 1
+8 ** 6 = 262144
+```
+
 🎉 CONGRATULATIONS ! 🎉
