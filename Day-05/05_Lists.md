@@ -1,562 +1,541 @@
-# Day 4
+# Day 5
 
-## Strings
+## Lists
 
-Text is a string data type. Any data type written as text is a string. Any data under single, double or triple quote are strings. There are different string methods and built-in functions to deal with string data types. To check the length of a string use the len() method.
+There are four collection data types in Python :
 
-### Creating a String
+- List: is a collection which is ordered and changeable(modifiable). Allows duplicate members.
+- Tuple: is a collection which is ordered and unchangeable or unmodifiable(immutable). Allows duplicate members.
+- Set: is a collection which is unordered, un-indexed and unmodifiable, but we can add new items to the set. Duplicate members are not allowed.
+- Dictionary: is a collection which is unordered, changeable(modifiable) and indexed. No duplicate members.
 
-```py
-letter = 'P'                # A string could be a single character or a bunch of texts
-print(letter)               # P
-print(len(letter))          # 1
-greeting = 'Hello, World!'  # String could be made using a single or double quote,"Hello, World!"
-print(greeting)             # Hello, World!
-print(len(greeting))        # 13
-sentence = "I hope you are enjoying 30 days of Python Challenge"
-print(sentence)
-```
+A list is collection of different data types which is ordered and modifiable(mutable). A list can be empty or it may have different data type items.
 
-Multiline string is created by using triple single (''') or triple double quotes ("""). See the example below.
+### How to Create a List
+
+In Python we can create lists in two ways:
+
+- Using list built-in function
 
 ```py
-multiline_string = '''I am a teacher and enjoy teaching.
-I didn't find anything as rewarding as empowering people.
-That is why I created 30 days of python.'''
-print(multiline_string)
-
-# Another way of doing the same thing
-multiline_string = """I am a teacher and enjoy teaching.
-I didn't find anything as rewarding as empowering people.
-That is why I created 30 days of python."""
-print(multiline_string)
-```
-
-### String Concatenation
-
-We can connect strings together. Merging or connecting strings is called concatenation. See the example below:
-
-```py
-first_name = 'Asabeneh'
-last_name = 'Yetayeh'
-space = ' '
-full_name = first_name  +  space + last_name
-print(full_name) # Asabeneh Yetayeh
-# Checking the length of a string using len() built-in function
-print(len(first_name))  # 8
-print(len(last_name))   # 7
-print(len(first_name) > len(last_name)) # True
-print(len(full_name)) # 16
-```
-
-### Escape Sequences in Strings
-
-In Python and other programming languages \ followed by a character is an escape sequence. Let us see the most common escape characters:
-
-- \n: new line
-- \t: Tab means(8 spaces)
-- \\\\: Back slash
-- \\': Single quote (')
-- \\": Double quote (")
-
-Now, let us see the use of the above escape sequences with examples.
-
-```py
-print('I hope everyone is enjoying the Python Challenge.\nAre you ?') # line break
-print('Days\tTopics\tExercises') # adding tab space or 4 spaces 
-print('Day 1\t5\t5')
-print('Day 2\t6\t20')
-print('Day 3\t5\t23')
-print('Day 4\t1\t35')
-print('This is a backslash  symbol (\\)') # To write a backslash
-print('In every programming language it starts with \"Hello, World!\"') # to write a double quote inside a single quote
-
-# output
-I hope every one is enjoying the Python Challenge.
-Are you ?
-Days	Topics	Exercises
-Day 1	5	    5
-Day 2	6	    20
-Day 3	5	    23
-Day 4	1	    35
-This is a backslash  symbol (\)
-In every programming language it starts with "Hello, World!"
-```
-
-### String formatting
-
-#### Old Style String Formatting (% Operator)
-
-In Python there are many ways of formatting strings. In this section, we will cover some of them.
-The "%" operator is used to format a set of variables enclosed in a "tuple" (a fixed size list), together with a format string, which contains normal text together with "argument specifiers", special symbols like "%s", "%d", "%f", "%.<small>number of digits</small>f".
-
-- %s - String (or any object with a string representation, like numbers)
-- %d - Integers
-- %f - Floating point numbers
-- "%.<small>number of digits</small>f" - Floating point numbers with fixed precision
-
-```py
-# Strings only
-first_name = 'Asabeneh'
-last_name = 'Yetayeh'
-language = 'Python'
-formated_string = 'I am %s %s. I teach %s' %(first_name, last_name, language)
-print(formated_string)
-
-# Strings  and numbers
-radius = 10
-pi = 3.14
-area = pi * radius ** 2
-formated_string = 'The area of circle with a radius %d is %.2f.' %(radius, area) # 2 refers the 2 significant digits after the point
-
-python_libraries = ['Django', 'Flask', 'NumPy', 'Matplotlib','Pandas']
-formated_string = 'The following are python libraries:%s' % (python_libraries)
-print(formated_string) # "The following are python libraries:['Django', 'Flask', 'NumPy', 'Matplotlib','Pandas']"
-```
-
-#### New Style String Formatting (str.format)
-
-This formatting is introduced in Python version 3.
-
-```py
-
-first_name = 'Asabeneh'
-last_name = 'Yetayeh'
-language = 'Python'
-formated_string = 'I am {} {}. I teach {}'.format(first_name, last_name, language)
-print(formated_string)
-a = 4
-b = 3
-
-print('{} + {} = {}'.format(a, b, a + b))
-print('{} - {} = {}'.format(a, b, a - b))
-print('{} * {} = {}'.format(a, b, a * b))
-print('{} / {} = {:.2f}'.format(a, b, a / b)) # limits it to two digits after decimal
-print('{} % {} = {}'.format(a, b, a % b))
-print('{} // {} = {}'.format(a, b, a // b))
-print('{} ** {} = {}'.format(a, b, a ** b))
-
-# output
-4 + 3 = 7
-4 - 3 = 1
-4 * 3 = 12
-4 / 3 = 1.33
-4 % 3 = 1
-4 // 3 = 1
-4 ** 3 = 64
-
-# Strings  and numbers
-radius = 10
-pi = 3.14
-area = pi * radius ** 2
-formated_string = 'The area of a circle with a radius {} is {:.2f}.'.format(radius, area) # 2 digits after decimal
-print(formated_string)
-
-```
-
-#### String Interpolation / f-Strings (Python 3.6+)
-
-Another new string formatting is string interpolation, f-strings. Strings start with f and we can inject the data in their corresponding positions.
-
-```py
-a = 4
-b = 3
-print(f'{a} + {b} = {a +b}')
-print(f'{a} - {b} = {a - b}')
-print(f'{a} * {b} = {a * b}')
-print(f'{a} / {b} = {a / b:.2f}')
-print(f'{a} % {b} = {a % b}')
-print(f'{a} // {b} = {a // b}')
-print(f'{a} ** {b} = {a ** b}')
-```
-
-### Python Strings as Sequences of Characters
-
-Python strings are sequences of characters, and share their basic methods of access with other Python ordered sequences of objects – lists and tuples. The simplest way of extracting single characters from strings (and individual members from any sequence) is to unpack them into corresponding variables.
-
-#### Unpacking Characters
-
-```
-language = 'Python'
-a,b,c,d,e,f = language # unpacking sequence characters into variables
-print(a) # P
-print(b) # y
-print(c) # t
-print(d) # h
-print(e) # o
-print(f) # n
-```
-
-#### Accessing Characters in Strings by Index
-
-In programming counting starts from zero. Therefore the first letter of a string is at zero index and the last letter of a string is the length of a string minus one.
-
-![String index](../images/string_index.png)
-
-```py
-language = 'Python'
-first_letter = language[0]
-print(first_letter) # P
-second_letter = language[1]
-print(second_letter) # y
-last_index = len(language) - 1
-last_letter = language[last_index]
-print(last_letter) # n
-```
-
-If we want to start from right end we can use negative indexing. -1 is the last index.
-
-```py
-language = 'Python'
-last_letter = language[-1]
-print(last_letter) # n
-second_last = language[-2]
-print(second_last) # o
-```
-
-#### Slicing Python Strings
-
-In python we can slice strings into substrings.
-
-```py
-language = 'Python'
-first_three = language[0:3] # starts at zero index and up to 3 but not include 3
-print(first_three) #Pyt
-last_three = language[3:6]
-print(last_three) # hon
-# Another way
-last_three = language[-3:]
-print(last_three)   # hon
-last_three = language[3:]
-print(last_three)   # hon
-```
-
-#### Reversing a String
-
-We can easily reverse strings in python.
-
-```py
-greeting = 'Hello, World!'
-print(greeting[::-1]) # !dlroW ,olleH
-```
-
-#### Skipping Characters While Slicing
-
-It is possible to skip characters while slicing by passing step argument to slice method.
-
-```py
-language = 'Python'
-pto = language[0:6:2] #
-print(pto) # Pto
-```
-
-### String Methods
-
-There are many string methods which allow us to format strings. See some of the string methods in the following example:
-
-- capitalize(): Converts the first character of the string to capital letter
-
-```py
-challenge = 'thirty days of python'
-print(challenge.capitalize()) # 'Thirty days of python'
-```
-
-- count(): returns occurrences of substring in string, count(substring, start=.., end=..). The start is a starting indexing for counting and end is the last index to count.
-
-```py
-challenge = 'thirty days of python'
-print(challenge.count('y')) # 3
-print(challenge.count('y', 7, 14)) # 1, 
-print(challenge.count('th')) # 2`
-```
-
-- endswith(): Checks if a string ends with a specified ending
-
-```py
-challenge = 'thirty days of python'
-print(challenge.endswith('on'))   # True
-print(challenge.endswith('tion')) # False
-```
-
-- expandtabs(): Replaces tab character with spaces, default tab size is 8. It takes tab size argument
-
-```py
-challenge = 'thirty\tdays\tof\tpython'
-print(challenge.expandtabs())   # 'thirty  days    of      python'
-print(challenge.expandtabs(10)) # 'thirty    days      of        python'
-```
-
-- find(): Returns the index of the first occurrence of a substring, if not found returns -1
-
-```py
-challenge = 'thirty days of python'
-print(challenge.find('y'))  # 5
-print(challenge.find('th')) # 0
-```
-
-- rfind(): Returns the index of the last occurrence of a substring, if not found returns -1
-
-```py
-challenge = 'thirty days of python'
-print(challenge.rfind('y'))  # 16
-print(challenge.rfind('th')) # 17
-```
-
-- format(): formats string into a nicer output  
-   More about string formatting check this [link](https://www.programiz.com/python-programming/methods/string/format)
-
-```py
-first_name = 'Asabeneh'
-last_name = 'Yetayeh'
-age = 250
-job = 'teacher'
-country = 'Finland'
-sentence = 'I am {} {}. I am a {}. I am {} years old. I live in {}.'.format(first_name, last_name, age, job, country)
-print(sentence) # I am Asabeneh Yetayeh. I am 250 years old. I am a teacher. I live in Finland.
-
-radius = 10
-pi = 3.14
-area = pi * radius ** 2
-result = 'The area of a circle with radius {} is {}'.format(str(radius), str(area))
-print(result) # The area of a circle with radius 10 is 314
-```
-
-- index(): Returns the lowest index of a substring, additional arguments indicate starting and ending index (default 0 and string length - 1). If the substring is not found it raises a valueError. 
-
-```py
-challenge = 'thirty days of python'
-sub_string = 'da'
-print(challenge.index(sub_string))  # 7
-print(challenge.index(sub_string, 9)) # error
-```
-
-- rindex(): Returns the highest index of a substring, additional arguments indicate starting and ending index (default 0 and string length - 1)
-
-```py
-challenge = 'thirty days of python'
-sub_string = 'da'
-print(challenge.rindex(sub_string))  # 8
-print(challenge.rindex(sub_string, 9)) # error
-```
-
-- isalnum(): Checks alphanumeric character
-
-```py
-challenge = 'ThirtyDaysPython'
-print(challenge.isalnum()) # True
-
-challenge = '30DaysPython'
-print(challenge.isalnum()) # True
-
-challenge = 'thirty days of python'
-print(challenge.isalnum()) # False, space is not an alphanumeric character
-
-challenge = 'thirty days of python 2019'
-print(challenge.isalnum()) # False
-```
-
-- isalpha(): Checks if all string elements are alphabet characters (a-z and A-Z)
-
-```py
-challenge = 'thirty days of python'
-print(challenge.isalpha()) # False, space is once again excluded
-challenge = 'ThirtyDaysPython'
-print(challenge.isalpha()) # True
-num = '123'
-print(num.isalpha())      # False
-```
-
-- isdecimal(): Checks if all characters in a string are decimal (0-9)
-
-```py
-challenge = 'thirty days of python'
-print(challenge.isdecimal())  # False
-challenge = '123'
-print(challenge.isdecimal())  # True
-challenge = '\u00B2'
-print(challenge.isdigit())   # False
-challenge = '12 3'
-print(challenge.isdecimal())  # False, space not allowed
-```
-
-- isdigit(): Checks if all characters in a string are numbers (0-9 and some other unicode characters for numbers)
-
-```py
-challenge = 'Thirty'
-print(challenge.isdigit()) # False
-challenge = '30'
-print(challenge.isdigit())   # True
-challenge = '\u00B2'
-print(challenge.isdigit())   # True
-```
-
-- isnumeric(): Checks if all characters in a string are numbers or number related (just like isdigit(), just accepts more symbols, like ½)
-
-```py
-num = '10'
-print(num.isnumeric()) # True
-num = '\u00BD' # ½
-print(num.isnumeric()) # True
-num = '10.5'
-print(num.isnumeric()) # False
-```
-
-- isidentifier(): Checks for a valid identifier - it checks if a string is a valid variable name
-
-```py
-challenge = '30DaysOfPython'
-print(challenge.isidentifier()) # False, because it starts with a number
-challenge = 'thirty_days_of_python'
-print(challenge.isidentifier()) # True
-```
-
-- islower(): Checks if all alphabet characters in the string are lowercase
-
-```py
-challenge = 'thirty days of python'
-print(challenge.islower()) # True
-challenge = 'Thirty days of python'
-print(challenge.islower()) # False
-```
-
-- isupper(): Checks if all alphabet characters in the string are uppercase
-
-```py
-challenge = 'thirty days of python'
-print(challenge.isupper()) #  False
-challenge = 'THIRTY DAYS OF PYTHON'
-print(challenge.isupper()) # True
-```
-
-- join(): Returns a concatenated string
-
-```py
-web_tech = ['HTML', 'CSS', 'JavaScript', 'React']
-result = ' '.join(web_tech)
-print(result) # 'HTML CSS JavaScript React'
+# syntax
+lst = list()
 ```
 
 ```py
-web_tech = ['HTML', 'CSS', 'JavaScript', 'React']
-result = '# '.join(web_tech)
-print(result) # 'HTML# CSS# JavaScript# React'
+empty_list = list() # this is an empty list, no item in the list
+print(len(empty_list)) # 0
 ```
 
-- strip(): Removes all given characters starting from the beginning and end of the string
+- Using square brackets, []
 
 ```py
-challenge = 'thirty days of pythoonnn'
-print(challenge.strip('noth')) # 'irty days of py'
+# syntax
+lst = []
 ```
-
-- replace(): Replaces substring with a given string
 
 ```py
-challenge = 'thirty days of python'
-print(challenge.replace('python', 'coding')) # 'thirty days of coding'
+empty_list = [] # this is an empty list, no item in the list
+print(len(empty_list)) # 0
 ```
 
-- split(): Splits the string, using given string or space as a separator
+Lists with initial values. We use _len()_ to find the length of a list.
 
 ```py
-challenge = 'thirty days of python'
-print(challenge.split()) # ['thirty', 'days', 'of', 'python']
-challenge = 'thirty, days, of, python'
-print(challenge.split(', ')) # ['thirty', 'days', 'of', 'python']
+fruits = ['banana', 'orange', 'mango', 'lemon']                     # list of fruits
+vegetables = ['Tomato', 'Potato', 'Cabbage','Onion', 'Carrot']      # list of vegetables
+animal_products = ['milk', 'meat', 'butter', 'yoghurt']             # list of animal products
+web_techs = ['HTML', 'CSS', 'JS', 'React','Redux', 'Node', 'MongDB'] # list of web technologies
+countries = ['Finland', 'Estonia', 'Denmark', 'Sweden', 'Norway']
+
+# Print the lists and its length
+print('Fruits:', fruits)
+print('Number of fruits:', len(fruits))
+print('Vegetables:', vegetables)
+print('Number of vegetables:', len(vegetables))
+print('Animal products:',animal_products)
+print('Number of animal products:', len(animal_products))
+print('Web technologies:', web_techs)
+print('Number of web technologies:', len(web_techs))
+print('Countries:', countries)
+print('Number of countries:', len(countries))
 ```
-
-- title(): Returns a title cased string
-
-```py
-challenge = 'thirty days of python'
-print(challenge.title()) # Thirty Days Of Python
-```
-
-- swapcase(): Converts all uppercase characters to lowercase and all lowercase characters to uppercase characters
-
-```py
-challenge = 'thirty days of python'
-print(challenge.swapcase())   # THIRTY DAYS OF PYTHON
-challenge = 'Thirty Days Of Python'
-print(challenge.swapcase())  # tHIRTY dAYS oF pYTHON
-```
-
-- startswith(): Checks if String Starts with the Specified String
-
-```py
-challenge = 'thirty days of python'
-print(challenge.startswith('thirty')) # True
-
-challenge = '30 days of python'
-print(challenge.startswith('thirty')) # False
-```
-
-🌕 You are an extraordinary person and you have a remarkable potential. You have just completed day 4 challenges and you are four steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
-
-## 💻 Exercises - Day 4
-
-1. Concatenate the string 'Thirty', 'Days', 'Of', 'Python' to a single string, 'Thirty Days Of Python'.
-2. Concatenate the string 'Coding', 'For' , 'All' to a single string, 'Coding For All'.
-3. Declare a variable named company and assign it to an initial value "Coding For All".
-4. Print the variable company using _print()_.
-5. Print the length of the company string using _len()_ method and _print()_.
-6. Change all the characters to uppercase letters using _upper()_ method.
-7. Change all the characters to lowercase letters using _lower()_ method.
-8. Use capitalize(), title(), swapcase() methods to format the value of the string _Coding For All_.
-9. Cut(slice) out the first word of _Coding For All_ string.
-10. Check if _Coding For All_ string contains a word Coding using the method index, find or other methods.
-11. Replace the word coding in the string 'Coding For All' to Python.
-12. Change Python for Everyone to Python for All using the replace method or other methods.
-13. Split the string 'Coding For All' using space as the separator (split()) .
-14. "Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon" split the string at the comma.
-15. What is the character at index 0 in the string _Coding For All_.
-16. What is the last index of the string _Coding For All_.
-17. What character is at index 10 in "Coding For All" string.
-18. Create an acronym or an abbreviation for the name 'Python For Everyone'.
-19. Create an acronym or an abbreviation for the name 'Coding For All'.
-20. Use index to determine the position of the first occurrence of C in Coding For All.
-21. Use index to determine the position of the first occurrence of F in Coding For All.
-22. Use rfind to determine the position of the last occurrence of l in Coding For All People.
-23. Use index or find to find the position of the first occurrence of the word 'because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
-24. Use rindex to find the position of the last occurrence of the word because in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
-25. Slice out the phrase 'because because because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
-26. Find the position of the first occurrence of the word 'because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
-27. Slice out the phrase 'because because because' in the following sentence: 'You cannot end a sentence with because because because is a conjunction'
-28. Does '\'Coding For All' start with a substring _Coding_?
-29. Does 'Coding For All' end with a substring _coding_?
-30. '&nbsp;&nbsp; Coding For All &nbsp;&nbsp;&nbsp; &nbsp;' &nbsp;, remove the left and right trailing spaces in the given string.
-31. Which one of the following variables return True when we use the method isidentifier():
-    - 30DaysOfPython
-    - thirty_days_of_python
-32. The following list contains the names of some of python libraries: ['Django', 'Flask', 'Bottle', 'Pyramid', 'Falcon']. Join the list with a hash with space string.
-33. Use the new line escape sequence to separate the following sentences.
-    ```py
-    I am enjoying this challenge.
-    I just wonder what is next.
-    ```
-34. Use a tab escape sequence to write the following lines.
-    ```py
-    Name      Age     Country   City
-    Asabeneh  250     Finland   Helsinki
-    ```
-35. Use the string formatting method to display the following:
 
 ```sh
-radius = 10
-area = 3.14 * radius ** 2
-The area of a circle with radius 10 is 314 meters square.
+output
+Fruits: ['banana', 'orange', 'mango', 'lemon']
+Number of fruits: 4
+Vegetables: ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+Number of vegetables: 5
+Animal products: ['milk', 'meat', 'butter', 'yoghurt']
+Number of animal products: 4
+Web technologies: ['HTML', 'CSS', 'JS', 'React', 'Redux', 'Node', 'MongDB']
+Number of web technologies: 7
+Countries: ['Finland', 'Estonia', 'Denmark', 'Sweden', 'Norway']
+Number of countries: 5
 ```
 
-36. Make the following using string formatting methods:
+- Lists can have items of different data types
+
+```py
+ lst = ['Asabeneh', 250, True, {'country':'Finland', 'city':'Helsinki'}] # list containing different data types
+```
+
+### Accessing List Items Using Positive Indexing
+
+We access each item in a list using their index. A list index starts from 0. The picture below shows clearly where the index starts
+![List index](../images/list_index.png)
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+first_fruit = fruits[0] # we are accessing the first item using its index
+print(first_fruit)      # banana
+second_fruit = fruits[1]
+print(second_fruit)     # orange
+last_fruit = fruits[3]
+print(last_fruit) # lemon
+# Last index
+last_index = len(fruits) - 1
+last_fruit = fruits[last_index]
+```
+
+### Accessing List Items Using Negative Indexing
+
+Negative indexing means beginning from the end, -1 refers to the last item, -2 refers to the second last item.
+
+![List negative indexing](../images/list_negative_indexing.png)
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+first_fruit = fruits[-4]
+last_fruit = fruits[-1]
+second_last = fruits[-2]
+print(first_fruit)      # banana
+print(last_fruit)       # lemon
+print(second_last)      # mango
+```
+
+### Unpacking List Items
+
+```py
+lst = ['item1','item2','item3', 'item4', 'item5']
+first_item, second_item, third_item, *rest = lst
+print(first_item)     # item1
+print(second_item)    # item2
+print(third_item)     # item3
+print(rest)           # ['item4', 'item5']
+
+```
+
+```py
+# First Example
+fruits = ['banana', 'orange', 'mango', 'lemon','lime','apple']
+first_fruit, second_fruit, third_fruit, *rest = fruits 
+print(first_fruit)     # banana
+print(second_fruit)    # orange
+print(third_fruit)     # mango
+print(rest)           # ['lemon','lime','apple']
+# Second Example about unpacking list
+first, second, third,*rest, tenth = [1,2,3,4,5,6,7,8,9,10]
+print(first)          # 1
+print(second)         # 2
+print(third)          # 3
+print(rest)           # [4,5,6,7,8,9]
+print(tenth)          # 10
+# Third Example about unpacking list
+countries = ['Germany', 'France','Belgium','Sweden','Denmark','Finland','Norway','Iceland','Estonia']
+gr, fr, bg, sw, *scandic, es = countries
+print(gr)
+print(fr)
+print(bg)
+print(sw)
+print(scandic)
+print(es)
+```
+
+### Slicing Items from a List
+
+- Positive Indexing: We can specify a range of positive indexes by specifying the start, end and step, the return value will be a new list. (default values for start = 0, end = len(lst) - 1 (last item), step = 1)
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+all_fruits = fruits[0:4] # it returns all the fruits
+# this will also give the same result as the one above
+all_fruits = fruits[0:] # if we don't set where to stop it takes all the rest
+orange_and_mango = fruits[1:3] # it does not include the first index
+orange_mango_lemon = fruits[1:]
+orange_and_lemon = fruits[::2] # here we used a 3rd argument, step. It will take every 2cnd item - ['banana', 'mango']
+```
+
+- Negative Indexing: We can specify a range of negative indexes by specifying the start, end and step, the return value will be a new list.
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+all_fruits = fruits[-4:] # it returns all the fruits
+orange_and_mango = fruits[-3:-1] # it does not include the last index,['orange', 'mango']
+orange_mango_lemon = fruits[-3:] # this will give starting from -3 to the end,['orange', 'mango', 'lemon']
+reverse_fruits = fruits[::-1] # a negative step will take the list in reverse order,['lemon', 'mango', 'orange', 'banana']
+```
+
+### Modifying Lists
+
+List is a mutable or modifiable ordered collection of items. Lets modify the fruit list.
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits[0] = 'avocado'
+print(fruits)       #  ['avocado', 'orange', 'mango', 'lemon']
+fruits[1] = 'apple'
+print(fruits)       #  ['avocado', 'apple', 'mango', 'lemon']
+last_index = len(fruits) - 1
+fruits[last_index] = 'lime'
+print(fruits)        #  ['avocado', 'apple', 'mango', 'lime']
+```
+
+### Checking Items in a List
+
+Checking an item if it is a member of a list using *in* operator. See the example below.
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+does_exist = 'banana' in fruits
+print(does_exist)  # True
+does_exist = 'lime' in fruits
+print(does_exist)  # False
+```
+
+### Adding Items to a List
+
+To add item to the end of an existing list we use the method *append()*.
+
+```py
+# syntax
+lst = list()
+lst.append(item)
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.append('apple')
+print(fruits)           # ['banana', 'orange', 'mango', 'lemon', 'apple']
+fruits.append('lime')   # ['banana', 'orange', 'mango', 'lemon', 'apple', 'lime']
+print(fruits)
+```
+
+### Inserting Items into a List
+
+We can use *insert()* method to insert a single item at a specified index in a list. Note that other items are shifted to the right. The *insert()* methods takes two arguments:index and an item to insert.
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst.insert(index, item)
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.insert(2, 'apple') # insert apple between orange and mango
+print(fruits)           # ['banana', 'orange', 'apple', 'mango', 'lemon']
+fruits.insert(3, 'lime')   # ['banana', 'orange', 'apple', 'lime', 'mango', 'lemon']
+print(fruits)
+```
+
+### Removing Items from a List
+
+The remove method removes a specified item from a list
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst.remove(item)
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon', 'banana']
+fruits.remove('banana')
+print(fruits)  # ['orange', 'mango', 'lemon', 'banana'] - this method removes the first occurrence of the item in the list
+fruits.remove('lemon')
+print(fruits)  # ['orange', 'mango', 'banana']
+```
+
+### Removing Items Using Pop
+
+The *pop()* method removes the specified index, (or the last item if index is not specified):
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst.pop()       # last item
+lst.pop(index)
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.pop()
+print(fruits)       # ['banana', 'orange', 'mango']
+
+fruits.pop(0)
+print(fruits)       # ['orange', 'mango']
+```
+
+### Removing Items Using Del
+
+The *del* keyword removes the specified index and it can also be used to delete items within index range. It can also delete the list completely
+
+```py
+# syntax
+lst = ['item1', 'item2']
+del lst[index] # only a single item
+del lst        # to delete the list completely
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon', 'kiwi', 'lime']
+del fruits[0]
+print(fruits)       # ['orange', 'mango', 'lemon', 'kiwi', 'lime']
+del fruits[1]
+print(fruits)       # ['orange', 'lemon', 'kiwi', 'lime']
+del fruits[1:3]     # this deletes items between given indexes, so it does not delete the item with index 3!
+print(fruits)       # ['orange', 'lime']
+del fruits
+print(fruits)       # This should give: NameError: name 'fruits' is not defined
+```
+
+### Clearing List Items
+
+The *clear()* method empties the list:
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst.clear()
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.clear()
+print(fruits)       # []
+```
+
+### Copying a List
+
+It is possible to copy a list by reassigning it to a new variable in the following way: list2 = list1. Now, list2 is a reference of list1, any changes we make in list2 will also modify the original, list1. But there are lots of case in which we do not like to modify the original instead we like to have a different copy. One of way of avoiding the problem above is using _copy()_.
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst_copy = lst.copy()
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits_copy = fruits.copy()
+print(fruits_copy)       # ['banana', 'orange', 'mango', 'lemon']
+```
+
+### Joining Lists
+
+There are several ways to join, or concatenate, two or more lists in Python.
+
+- Plus Operator (+)
+
+```py
+# syntax
+list3 = list1 + list2
+```
+
+```py
+positive_numbers = [1, 2, 3, 4, 5]
+zero = [0]
+negative_numbers = [-5,-4,-3,-2,-1]
+integers = negative_numbers + zero + positive_numbers
+print(integers) # [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+fruits = ['banana', 'orange', 'mango', 'lemon']
+vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+fruits_and_vegetables = fruits + vegetables
+print(fruits_and_vegetables ) # ['banana', 'orange', 'mango', 'lemon', 'Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+```
+
+- Joining using extend() method
+  The *extend()* method allows to append list in a list. See the example below.
+
+```py
+# syntax
+list1 = ['item1', 'item2']
+list2 = ['item3', 'item4', 'item5']
+list1.extend(list2)
+```
+
+```py
+num1 = [0, 1, 2, 3]
+num2= [4, 5, 6]
+num1.extend(num2)
+print('Numbers:', num1) # Numbers: [0, 1, 2, 3, 4, 5, 6]
+negative_numbers = [-5,-4,-3,-2,-1]
+positive_numbers = [1, 2, 3,4,5]
+zero = [0]
+
+negative_numbers.extend(zero)
+negative_numbers.extend(positive_numbers)
+print('Integers:', negative_numbers) # Integers: [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+fruits = ['banana', 'orange', 'mango', 'lemon']
+vegetables = ['Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+fruits.extend(vegetables)
+print('Fruits and vegetables:', fruits ) # Fruits and vegetables: ['banana', 'orange', 'mango', 'lemon', 'Tomato', 'Potato', 'Cabbage', 'Onion', 'Carrot']
+```
+
+### Counting Items in a List
+
+The *count()* method returns the number of times an item appears in a list:
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst.count(item)
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+print(fruits.count('orange'))   # 1
+ages = [22, 19, 24, 25, 26, 24, 25, 24]
+print(ages.count(24))           # 3
+```
+
+### Finding Index of an Item
+
+The *index()* method returns the index of an item in the list:
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst.index(item)
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+print(fruits.index('orange'))   # 1
+ages = [22, 19, 24, 25, 26, 24, 25, 24]
+print(ages.index(24))           # 2, the first occurrence
+```
+
+### Reversing a List
+
+The *reverse()* method reverses the order of a list.
+
+```py
+# syntax
+lst = ['item1', 'item2']
+lst.reverse()
+
+```
+
+```py
+fruits = ['banana', 'orange', 'mango', 'lemon']
+fruits.reverse()
+print(fruits) # ['lemon', 'mango', 'orange', 'banana']
+ages = [22, 19, 24, 25, 26, 24, 25, 24]
+ages.reverse()
+print(ages) # [24, 25, 24, 26, 25, 24, 19, 22]
+```
+
+### Sorting List Items
+
+To sort lists we can use _sort()_ method or _sorted()_ built-in functions. The _sort()_ method reorders the list items in ascending order and modifies the original list. If an argument of _sort()_ method reverse is equal to true, it will arrange the list in descending order.
+
+- sort(): this method modifies the original list
+
+  ```py
+  # syntax
+  lst = ['item1', 'item2']
+  lst.sort()                # ascending
+  lst.sort(reverse=True)    # descending
+  ```
+
+  **Example:**
+
+  ```py
+  fruits = ['banana', 'orange', 'mango', 'lemon']
+  fruits.sort()
+  print(fruits)             # sorted in alphabetical order, ['banana', 'lemon', 'mango', 'orange']
+  fruits.sort(reverse=True)
+  print(fruits) # ['orange', 'mango', 'lemon', 'banana']
+  ages = [22, 19, 24, 25, 26, 24, 25, 24]
+  ages.sort()
+  print(ages) #  [19, 22, 24, 24, 24, 25, 25, 26]
+ 
+  ages.sort(reverse=True)
+  print(ages) #  [26, 25, 25, 24, 24, 24, 22, 19]
+  ```
+
+  sorted(): returns the ordered list without modifying the original list
+  **Example:**
+
+  ```py
+  fruits = ['banana', 'orange', 'mango', 'lemon']
+  print(sorted(fruits))   # ['banana', 'lemon', 'mango', 'orange']
+  # Reverse order
+  fruits = ['banana', 'orange', 'mango', 'lemon']
+  fruits = sorted(fruits,reverse=True)
+  print(fruits)     # ['orange', 'mango', 'lemon', 'banana']
+  ```
+
+🌕 You are diligent and you have already achieved quite a lot. You have just completed day 5 challenges and you are 5 steps a head in to your way to greatness. Now do some exercises for your brain and muscles.
+
+## 💻 Exercises: Day 5
+
+### Exercises: Level 1
+
+1. Declare an empty list
+2. Declare a list with more than 5 items
+3. Find the length of your list
+4. Get the first item, the middle item and the last item of the list
+5. Declare a list called mixed_data_types, put your(name, age, height, marital status, address)
+6. Declare a list variable named it_companies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon.
+7. Print the list using _print()_
+8. Print the number of companies in the list
+9. Print the first, middle and last company
+10. Print the list after modifying one of the companies
+11. Add an IT company to it_companies
+12. Insert an IT company in the middle of the companies list
+13. Change one of the it_companies names to uppercase (IBM excluded!)
+14. Join the it_companies with a string '#;&nbsp; '
+15. Check if a certain company exists in the it_companies list.
+16. Sort the list using sort() method
+17. Reverse the list in descending order using reverse() method
+18. Slice out the first 3 companies from the list
+19. Slice out the last 3 companies from the list
+20. Slice out the middle IT company or companies from the list
+21. Remove the first IT company from the list
+22. Remove the middle IT company or companies from the list
+23. Remove the last IT company from the list
+24. Remove all IT companies from the list
+25. Destroy the IT companies list
+26. Join the following lists:
+
+    ```py
+    front_end = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+    back_end = ['Node','Express', 'MongoDB']
+    ```
+
+27. After joining the lists in question 26. Copy the joined list and assign it to a variable full_stack. Then insert Python and SQL after Redux.
+
+### Exercises: Level 2
+
+1. The following is a list of 10 students ages:
 
 ```sh
-8 + 6 = 14
-8 - 6 = 2
-8 * 6 = 48
-8 / 6 = 1.33
-8 % 6 = 2
-8 // 6 = 1
-8 ** 6 = 262144
+ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 ```
+
+- Sort the list and find the min and max age
+- Add the min age and the max age again to the list
+- Find the median age (one middle item or two middle items divided by two)
+- Find the average age (sum of all items divided by their number )
+- Find the range of the ages (max minus min)
+- Compare the value of (min - average) and (max - average), use _abs()_ method
+
+1. Find the middle country(ies) in the [countries list](https://github.com/Asabeneh/30-Days-Of-Python/tree/master/data/countries.py)
+1. Divide the countries list into two equal lists if it is even if not one more country for the first half.
+1. ['China', 'Russia', 'USA', 'Finland', 'Sweden', 'Norway', 'Denmark']. Unpack the first three countries and the rest as scandic countries.
 
 🎉 CONGRATULATIONS ! 🎉
